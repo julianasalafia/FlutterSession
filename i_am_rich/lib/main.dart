@@ -12,8 +12,7 @@ void main() {
         ),
         body: Center(
           child: Image(
-            image: NetworkImage(
-                'https://www.freecodecamp.org/news/content/images/size/w1000/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg'),
+            image: AssetImage('images/diamond.png'),
           ),
         ),
       ),
