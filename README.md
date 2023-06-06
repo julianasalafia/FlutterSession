@@ -25,4 +25,6 @@ To run the projects inside the folder you need to open Android Studio and click 
 - [Dicee Project](https://github.com/julianasalafia/FlutterSession/tree/main/dicee_project)
 - [The Magic Ball Challenge](https://github.com/julianasalafia/FlutterSession/tree/main/magic_ball_challenge)
 
+## About me
 
+You can find me on [Linktr.ee](https://linktr.ee/juliana.salafia).
