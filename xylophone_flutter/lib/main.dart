@@ -8,13 +8,10 @@ void main() {
 class XylophoneApp extends StatelessWidget {
   XylophoneApp({super.key});
 
-  var audioFile1 = ('note1.wav');
-  var audioFile2 = ('note2.wav');
-  var audioFile3 = ('note3.wav');
-  var audioFile4 = ('note4.wav');
-  var audioFile5 = ('note5.wav');
-  var audioFile6 = ('note6.wav');
-  var audioFile7 = ('note7.wav');
+  void playSound(int soundNumber) {
+    final player = AudioPlayer();
+    player.play(AssetSource('note$soundNumber.wav'));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +22,7 @@ class XylophoneApp extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource(audioFile1));
+                  playSound(1);
                 },
                 child: Container(
                   width: 80.0,
@@ -36,8 +32,7 @@ class XylophoneApp extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource(audioFile2));
+                  playSound(2);
                 },
                 child: Container(
                   width: 80.0,
@@ -47,8 +42,7 @@ class XylophoneApp extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource(audioFile3));
+                  playSound(3);
                 },
                 child: Container(
                   width: 80.0,
@@ -58,8 +52,7 @@ class XylophoneApp extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource(audioFile4));
+                  playSound(4);
                 },
                 child: Container(
                   width: 80.0,
@@ -69,8 +62,7 @@ class XylophoneApp extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource(audioFile5));
+                  playSound(5);
                 },
                 child: Container(
                   width: 80.0,
@@ -80,8 +72,7 @@ class XylophoneApp extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource(audioFile6));
+                  playSound(6);
                 },
                 child: Container(
                   width: 80.0,
@@ -91,8 +82,7 @@ class XylophoneApp extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource(audioFile7));
+                  playSound(7);
                 },
                 child: Container(
                   width: 80.0,
