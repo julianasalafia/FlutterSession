@@ -17,77 +17,85 @@ class XylophoneApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
             children: [
-              TextButton(
-                onPressed: () {
-                  playSound(1);
-                },
-                child: Container(
-                  width: 80.0,
-                  height: 40.0,
-                  color: Colors.red,
+              Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                  onPressed: () {
+                    playSound(1);
+                  },
+                  child: Container(
+                    color: Colors.red,
+                  ),
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  playSound(2);
-                },
-                child: Container(
-                  width: 80.0,
-                  height: 40.0,
-                  color: Colors.orange,
+              Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                  onPressed: () {
+                    playSound(2);
+                  },
+                  child: Container(
+                    color: Colors.orange,
+                  ),
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  playSound(3);
-                },
-                child: Container(
-                  width: 80.0,
-                  height: 40.0,
-                  color: Colors.yellow,
+              Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                  onPressed: () {
+                    playSound(3);
+                  },
+                  child: Container(
+                    color: Colors.yellow,
+                  ),
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  playSound(4);
-                },
-                child: Container(
-                  width: 80.0,
-                  height: 40.0,
-                  color: Colors.green,
+              Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                  onPressed: () {
+                    playSound(4);
+                  },
+                  child: Container(
+                    color: Colors.green,
+                  ),
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  playSound(5);
-                },
-                child: Container(
-                  width: 80.0,
-                  height: 40.0,
-                  color: Colors.green.shade800,
+              Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                  onPressed: () {
+                    playSound(5);
+                  },
+                  child: Container(
+                    color: Colors.green.shade800,
+                  ),
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  playSound(6);
-                },
-                child: Container(
-                  width: 80.0,
-                  height: 40.0,
-                  color: Colors.blue,
+              Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                  onPressed: () {
+                    playSound(6);
+                  },
+                  child: Container(
+                    color: Colors.blue,
+                  ),
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  playSound(7);
-                },
-                child: Container(
-                  width: 80.0,
-                  height: 40.0,
-                  color: Colors.purple,
+              Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                  onPressed: () {
+                    playSound(7);
+                  },
+                  child: Container(
+                    color: Colors.purple,
+                  ),
                 ),
               ),
             ],
