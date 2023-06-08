@@ -5,20 +5,20 @@ void main() {
   runApp(XylophoneApp());
 }
 
-Map<String, Color> getColorMap() {
-  return {
-    'red': Colors.red,
-    'orange': Colors.orange,
-    'yellow': Colors.yellow,
-    'green': Colors.green,
-    'green.shade800': Colors.green.shade800,
-    'blue': Colors.blue,
-    'purple': Colors.purple,
-  };
-}
-
 class XylophoneApp extends StatelessWidget {
   XylophoneApp({super.key});
+
+  Map<String, Color> getColorMap() {
+    return {
+      'red': Colors.red,
+      'orange': Colors.orange,
+      'yellow': Colors.yellow,
+      'green': Colors.green,
+      'green.shade800': Colors.green.shade800,
+      'blue': Colors.blue,
+      'purple': Colors.purple,
+    };
+  }
 
   void playSound(int soundNumber) {
     final player = AudioPlayer();
