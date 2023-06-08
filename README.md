@@ -24,6 +24,7 @@ To run the projects inside the folder you need to open Android Studio and click 
 - [Mi Card Profile](https://github.com/julianasalafia/FlutterSession/tree/main/mi_card_profile)
 - [Dicee Project](https://github.com/julianasalafia/FlutterSession/tree/main/dicee_project)
 - [The Magic Ball Challenge](https://github.com/julianasalafia/FlutterSession/tree/main/magic_ball_challenge)
+- [Xylophone](https://github.com/julianasalafia/FlutterSession/tree/main/xylophone_flutter)
 
 ## About me
 
