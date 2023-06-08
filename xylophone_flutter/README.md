@@ -1,16 +1,6 @@
-# xylophone_flutter
+# Xylophone
 
-A new Flutter project.
+![xylophone](https://github.com/julianasalafia/FlutterSession/blob/main/Screenshots_Projects/xylophone.png)
 
-## Getting Started
+"The xylophone is a musical instrument in the percussion family that consists of wooden bars struck by mallets. Like the glockenspiel, the xylophone essentially consists of a set of tuned wooden keys arranged in the fashion of the keyboard of a piano. Each bar is an idiophone tuned to a pitch of a musical scale, whether pentatonic or heptatonic in the case of many African and Asian instruments, diatonic in many western children's instruments, or chromatic for orchestral use.", ***wikipedia***.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
