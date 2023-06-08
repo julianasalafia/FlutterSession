@@ -8,26 +8,12 @@ void main() {
 class XylophoneApp extends StatelessWidget {
   XylophoneApp({super.key});
 
-  Map<String, Color> getColorMap() {
-    return {
-      'red': Colors.red,
-      'orange': Colors.orange,
-      'yellow': Colors.yellow,
-      'green': Colors.green,
-      'green.shade800': Colors.green.shade800,
-      'blue': Colors.blue,
-      'purple': Colors.purple,
-    };
-  }
-
   void playSound(int soundNumber) {
     final player = AudioPlayer();
     player.play(AssetSource('note$soundNumber.wav'));
   }
 
-  Expanded buildKey(String colorName, int soundNumber) {
-    Map<String, Color> colorMap = getColorMap();
-
+  Expanded buildKey({required Color color, required int soundNumber}) {
     return Expanded(
       child: TextButton(
         style: TextButton.styleFrom(padding: EdgeInsets.zero),
@@ -35,7 +21,7 @@ class XylophoneApp extends StatelessWidget {
           playSound(soundNumber);
         },
         child: Container(
-          color: colorMap[colorName],
+          color: color,
         ),
       ),
     );
@@ -49,13 +35,13 @@ class XylophoneApp extends StatelessWidget {
         body: SafeArea(
           child: Column(
             children: [
-              buildKey('red', 1),
-              buildKey('orange', 2),
-              buildKey('yellow', 3),
-              buildKey('green', 4),
-              buildKey('green.shade800', 5),
-              buildKey('blue', 6),
-              buildKey('purple', 7),
+              buildKey(color: Colors.red, soundNumber: 1),
+              buildKey(color: Colors.orange, soundNumber: 2),
+              buildKey(color: Colors.yellow, soundNumber: 3),
+              buildKey(color: Colors.green, soundNumber: 4),
+              buildKey(color: Colors.green.shade800, soundNumber: 5),
+              buildKey(color: Colors.blue, soundNumber: 6),
+              buildKey(color: Colors.purple, soundNumber: 7),
             ],
           ),
         ),
