@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'question.dart';
+import 'quizz_brain.dart';
+
+QuizzBrain quizzBrain = QuizzBrain();
 
 void main() => runApp(Quizzler());
 
@@ -32,15 +34,6 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
-  List<Question> questionBank = [
-    Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
-    Question(
-        q: 'Approximately one quarter of human bones are in the feet.',
-        a: true),
-    Question(q: 'A slug\'s blood is green.', a: true),
-  ];
-
-  int questionNumber = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +47,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questionBank[questionNumber].questionText,
+                quizzBrain.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -71,8 +64,7 @@ class _QuizPageState extends State<QuizPage> {
               color: Colors.green,
               child: TextButton(
                 onPressed: () {
-                  bool correctAnswer =
-                      questionBank[questionNumber].questionAnswer;
+                  bool correctAnswer = quizzBrain.getCorrectAnswer();
 
                   if (correctAnswer == true) {
                     print('user got it right');
@@ -81,7 +73,7 @@ class _QuizPageState extends State<QuizPage> {
                   }
 
                   setState(() {
-                    questionNumber = Random().nextInt(2);
+                    quizzBrain.nextQuestion();
                   });
                 },
                 child: Text(
@@ -102,8 +94,7 @@ class _QuizPageState extends State<QuizPage> {
               color: Colors.red,
               child: TextButton(
                 onPressed: () {
-                  bool correctAnswer =
-                      questionBank[questionNumber].questionAnswer;
+                  bool correctAnswer = quizzBrain.getCorrectAnswer();
 
                   if (correctAnswer == false) {
                     print('user got it right');
@@ -112,7 +103,7 @@ class _QuizPageState extends State<QuizPage> {
                   }
 
                   setState(() {
-                    questionNumber = Random().nextInt(2);
+                    quizzBrain.nextQuestion();
                   });
                 },
                 child: Text(
