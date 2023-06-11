@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 import 'quizz_brain.dart';
 
 QuizzBrain quizzBrain = QuizzBrain();
@@ -35,6 +34,29 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
 
+  void checkAnswer(bool userPickedAnswer) {
+    bool correctAnswer = quizzBrain.getCorrectAnswer();
+
+    setState(() {
+      if (correctAnswer == true) {
+        scoreKeeper.add(
+          Icon(
+            Icons.check,
+            color: Colors.green,
+          ),
+        );
+      } else {
+        scoreKeeper.add(
+          Icon(
+            Icons.close,
+            color: Colors.red,
+          ),
+        );
+      }
+      quizzBrain.nextQuestion();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -64,17 +86,7 @@ class _QuizPageState extends State<QuizPage> {
               color: Colors.green,
               child: TextButton(
                 onPressed: () {
-                  bool correctAnswer = quizzBrain.getCorrectAnswer();
-
-                  if (correctAnswer == true) {
-                    print('user got it right');
-                  } else {
-                    print('user got it wrong');
-                  }
-
-                  setState(() {
-                    quizzBrain.nextQuestion();
-                  });
+                  checkAnswer(true);
                 },
                 child: Text(
                   'True',
@@ -94,17 +106,7 @@ class _QuizPageState extends State<QuizPage> {
               color: Colors.red,
               child: TextButton(
                 onPressed: () {
-                  bool correctAnswer = quizzBrain.getCorrectAnswer();
-
-                  if (correctAnswer == false) {
-                    print('user got it right');
-                  } else {
-                    print('user got it wrong');
-                  }
-
-                  setState(() {
-                    quizzBrain.nextQuestion();
-                  });
+                  checkAnswer(false);
                 },
                 child: Text(
                   'False',
