@@ -1,16 +1,8 @@
-# quizzler
 
-A true or false quizz app.
+# Quizzler 
 
-## Getting Started
+Screenshot 1 | Screenshot 2  | Screenshot 3
+:-: | :-: | :-:
+|![](https://github.com/julianasalafia/FlutterSession/blob/main/Screenshots_Projects/quizzler_1.png) |![](https://github.com/julianasalafia/FlutterSession/blob/main/Screenshots_Projects/quizzler_2.png) | ![](https://github.com/julianasalafia/FlutterSession/blob/main/Screenshots_Projects/quizzler_3.png)|
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This app is a quiz game. The application imports the `Material` package from Flutter, a `QuizzBrain` class, and the `rflutter_alert` package. The `QuizzBrain` class is instantiated as `quizzBrain`. The main function runs the `Quizzler` widget, which is a `StatelessWidget`. The `build` method of the `Quizzler` widget returns a `MaterialApp` with a `Scaffold` that has a grey background color and a body that consists of a `SafeArea` containing a `QuizPage` widget. The `QuizPage` widget is a `StatefulWidget`, and its state is managed by the `_QuizPageState` class. This class has a method called `checkAnswer`, which takes in a boolean value representing the user's answer to the current question. This method checks if the user's answer is correct and updates the score accordingly. If the quiz is finished, an alert is shown to the user indicating that they have reached the end of the quiz. The build method of this class returns a `Column` with several children, including two buttons for answering "True" or "False" to the current question.
