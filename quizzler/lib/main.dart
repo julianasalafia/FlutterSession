@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quizz_brain.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 QuizzBrain quizzBrain = QuizzBrain();
 
@@ -38,22 +39,56 @@ class _QuizPageState extends State<QuizPage> {
     bool correctAnswer = quizzBrain.getCorrectAnswer();
 
     setState(() {
-      if (correctAnswer == true) {
-        scoreKeeper.add(
-          Icon(
-            Icons.check,
-            color: Colors.green,
+      if (quizzBrain.isFinished() == true) {
+        Alert(
+          context: context,
+          title: 'Finished!',
+          style: AlertStyle(
+            backgroundColor: Colors.grey.shade300,
+            alertBorder: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+              side: BorderSide(
+                color: Colors.grey.shade300,
+              ),
+            ),
           ),
-        );
+          desc: 'You\'ve reached the end of the quiz.',
+          buttons: [
+            DialogButton(
+              child: Text(
+                "RESTART",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              onPressed: () => Navigator.pop(context),
+              radius: BorderRadius.circular(15.0),
+              width: 120,
+            )
+          ],
+        ).show();
+
+        quizzBrain.reset();
+        scoreKeeper = [];
       } else {
-        scoreKeeper.add(
-          Icon(
-            Icons.close,
-            color: Colors.red,
-          ),
-        );
+        if (correctAnswer == true) {
+          scoreKeeper.add(
+            Icon(
+              Icons.check,
+              color: Colors.green,
+            ),
+          );
+        } else {
+          scoreKeeper.add(
+            Icon(
+              Icons.close,
+              color: Colors.red,
+            ),
+          );
+        }
+        quizzBrain.nextQuestion();
       }
-      quizzBrain.nextQuestion();
     });
   }
 
