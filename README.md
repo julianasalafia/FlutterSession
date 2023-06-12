@@ -18,14 +18,15 @@ To run the projects inside the folder you need to open Android Studio and click 
 
 ## Projects
 
-- [I am rich](https://github.com/julianasalafia/FlutterSession/tree/main/i_am_rich)
-- [Imma CAT](https://github.com/julianasalafia/FlutterSession/tree/main/Imma_CAT)
-- [Columns and Rows](https://github.com/julianasalafia/FlutterSession/tree/main/columns_and_rows)
-- [Mi Card Profile](https://github.com/julianasalafia/FlutterSession/tree/main/mi_card_profile)
-- [Dicee Project](https://github.com/julianasalafia/FlutterSession/tree/main/dicee_project)
-- [The Magic Ball Challenge](https://github.com/julianasalafia/FlutterSession/tree/main/magic_ball_challenge)
-- [Xylophone](https://github.com/julianasalafia/FlutterSession/tree/main/xylophone_flutter)
-- [Quizzler](https://github.com/julianasalafia/FlutterSession/tree/main/quizzler)
+- [I am rich](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/i_am_rich)
+- [Imma CAT](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/Imma_CAT)
+- [Columns and Rows](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/columns_and_rows)
+- [Mi Card Profile](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/mi_card_profile)
+- [Dicee Project](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/dicee_project)
+- [The Magic Ball Challenge](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/magic_ball_challenge)
+- [Xylophone](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/xylophone_flutter)
+- [Quizzler](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/quizzler)
+- [Destini Challenge](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/destini_challenge)
 
 ## About me
 
