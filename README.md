@@ -29,6 +29,7 @@ To run the projects inside the folder you need to open Android Studio and click 
 - [Destini Challenge](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/destini_challenge)
 - [BMI Calculator](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/bmi_calculator)
 - [Clima](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/clima)
+- [Bitcoin Ticker](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/bitcoin_ticker)
 
 ## About me
 
