@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flash_chat/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '';
 
 class ChatScreen extends StatefulWidget {
   static String id = 'chat_screen';
