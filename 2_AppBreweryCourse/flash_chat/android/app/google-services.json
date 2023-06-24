@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "658474986866",
+    "project_id": "flash-chat-16040",
+    "storage_bucket": "flash-chat-16040.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658474986866:android:9819ec0085242bee07c1eb",
+        "android_client_info": {
+          "package_name": "com.salafia.juliana.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658474986866-1fhshvt6ef88h2ku7nck53e1er8h1tun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGfX6HwcdY0Js2K5e1EAc_WOtGuZbX74I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658474986866-1fhshvt6ef88h2ku7nck53e1er8h1tun.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
