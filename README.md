@@ -30,6 +30,7 @@ To run the projects inside the folder you need to open Android Studio and click 
 - [BMI Calculator](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/bmi_calculator)
 - [Clima](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/clima)
 - [Bitcoin Ticker](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/bitcoin_ticker)
+- [Flash Chat](https://github.com/julianasalafia/FlutterSession/tree/main/2_AppBreweryCourse/flash_chat)
 
 ## About me
 
