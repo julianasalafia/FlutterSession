@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final _firestore = FirebaseFirestore.instance;
-User? loggedInUser;
+late User loggedInUser;
 
 class ChatScreen extends StatefulWidget {
   static String id = 'chat_screen';
@@ -25,7 +25,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   void getCurrentUser() async {
     try {
-      final user = await _auth.currentUser;
+      final user = _auth.currentUser;
       if (user != null) {
         loggedInUser = user;
       }
@@ -77,6 +77,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       _firestore.collection('messages').add({
                         'sender': loggedInUser?.email,
                         'text': messageText,
+                        'createdAt': FieldValue.serverTimestamp(),
                       });
                     },
                     child: Text(
@@ -95,7 +96,7 @@ class _ChatScreenState extends State<ChatScreen> {
 }
 
 class MessageBubble extends StatelessWidget {
-  MessageBubble(this.sender, this.text, {required this.isMe});
+  MessageBubble({required this.sender, required this.text, required this.isMe});
 
   final String sender;
   final String text;
@@ -149,12 +150,13 @@ class MessageBubble extends StatelessWidget {
 }
 
 class MessagesStream extends StatelessWidget {
-  const MessagesStream({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: _firestore.collection('messages').snapshots(),
+    return StreamBuilder<QuerySnapshot>(
+      stream: _firestore
+          .collection('messages')
+          .orderBy('createdAt', descending: true)
+          .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return Center(
@@ -174,14 +176,15 @@ class MessagesStream extends StatelessWidget {
           final currentUser = loggedInUser!.email;
 
           final messageBubble = MessageBubble(
-            messageSender,
-            messageText,
+            sender: messageSender,
+            text: messageText,
             isMe: currentUser == messageSender,
           );
           messageBubbles.add(messageBubble);
         }
         return Expanded(
           child: ListView(
+            reverse: true,
             padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
             children: messageBubbles,
           ),
