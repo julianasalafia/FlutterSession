@@ -1,4 +1,4 @@
-# restaurant_picker
+# Restaurant Picker
 
 Screenshot 1 | Screenshot 2 | 
 :-: | :-: | 
