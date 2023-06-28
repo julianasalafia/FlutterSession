@@ -7,10 +7,16 @@ class FlashcardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 4,
-      child: Center(
-        child: Text(text),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        elevation: 4,
+        child: Center(
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+          ),
+        ),
       ),
     );
   }
