@@ -12,8 +12,34 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  double _fontSize = 40;
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      home: Scaffold(
+        body: SafeArea(
+          child: Column(
+            children: [
+              Expanded(
+                child: TextField(
+                  textInputAction: TextInputAction.done,
+                  style: TextStyle(fontSize: _fontSize),
+                  maxLines: null,
+                ),
+              ),
+              Slider(
+                value: _fontSize,
+                onChanged: (newSize) {
+                  setState(() => _fontSize = newSize);
+                },
+                min: 30,
+                max: 200,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
