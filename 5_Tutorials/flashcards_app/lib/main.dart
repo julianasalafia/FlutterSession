@@ -1,3 +1,4 @@
+import 'package:flashcards_app/flashcard_view.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 
@@ -25,17 +26,11 @@ class _MyAppState extends State<MyApp> {
                 width: 250,
                 height: 250,
                 child: FlipCard(
-                  front: Card(
-                    elevation: 4,
-                    child: Center(
-                      child: Text('Sexy flashcard'),
-                    ),
+                  front: FlashcardView(
+                    text: 'front',
                   ),
-                  back: Card(
-                    elevation: 4,
-                    child: Center(
-                      child: Text('Welcome to the back side, Luke'),
-                    ),
+                  back: FlashcardView(
+                    text: 'back',
                   ),
                 ),
               ),
