@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/board_tile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,46 +36,19 @@ class _MyAppState extends State<MyApp> {
         child: Column(
           children: [
             Row(children: [
-              Container(
-                  width: tileDimension,
-                  height: tileDimension,
-                  color: Colors.red),
-              Container(
-                  width: tileDimension,
-                  height: tileDimension,
-                  color: Colors.blue),
-              Container(
-                  width: tileDimension,
-                  height: tileDimension,
-                  color: Colors.green),
+              BoardTile(dimension: tileDimension),
+              BoardTile(dimension: tileDimension),
+              BoardTile(dimension: tileDimension),
             ]),
             Row(children: [
-              Container(
-                  width: tileDimension,
-                  height: tileDimension,
-                  color: Colors.red),
-              Container(
-                  width: tileDimension,
-                  height: tileDimension,
-                  color: Colors.blue),
-              Container(
-                  width: tileDimension,
-                  height: tileDimension,
-                  color: Colors.green),
+              BoardTile(dimension: tileDimension),
+              BoardTile(dimension: tileDimension),
+              BoardTile(dimension: tileDimension),
             ]),
             Row(children: [
-              Container(
-                  width: tileDimension,
-                  height: tileDimension,
-                  color: Colors.red),
-              Container(
-                  width: tileDimension,
-                  height: tileDimension,
-                  color: Colors.blue),
-              Container(
-                  width: tileDimension,
-                  height: tileDimension,
-                  color: Colors.green),
+              BoardTile(dimension: tileDimension),
+              BoardTile(dimension: tileDimension),
+              BoardTile(dimension: tileDimension),
             ]),
           ],
         ),
