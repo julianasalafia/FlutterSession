@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/tile_state.dart';
 
 class BoardTile extends StatelessWidget {
+  final TileState tileState;
   final double dimension;
+  final VoidCallback? onPressed;
 
-  const BoardTile({super.key, required this.dimension});
+  const BoardTile(
+      {super.key,
+      required this.tileState,
+      this.onPressed,
+      required this.dimension});
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +18,33 @@ class BoardTile extends StatelessWidget {
       width: dimension,
       height: dimension,
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Image.asset('images/x.png'),
       ),
     );
+  }
+
+  Widget _widgetForTileState() {
+    Widget widget;
+
+    switch (tileState) {
+      case TileState.EMPTY:
+        {
+          widget = Container();
+        }
+        break;
+
+      case TileState.CROSS:
+        {
+          widget = Image.asset('images/x.png');
+        }
+        break;
+      case TileState.CIRCLE:
+        {
+          widget = Image.asset('images/o.png');
+        }
+        break;
+    }
+    return widget;
   }
 }

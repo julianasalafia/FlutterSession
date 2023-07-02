@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/board_tile.dart';
+import 'package:tic_tac_toe/tile_state.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,6 +14,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  var _boardState = List.filled(9, TileState.EMPTY);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,28 +34,27 @@ class _MyAppState extends State<MyApp> {
       final tileDimension = boardDimension / 3;
 
       return Container(
-        width: boardDimension,
-        height: boardDimension,
-        child: Column(
-          children: [
-            Row(children: [
-              BoardTile(dimension: tileDimension),
-              BoardTile(dimension: tileDimension),
-              BoardTile(dimension: tileDimension),
-            ]),
-            Row(children: [
-              BoardTile(dimension: tileDimension),
-              BoardTile(dimension: tileDimension),
-              BoardTile(dimension: tileDimension),
-            ]),
-            Row(children: [
-              BoardTile(dimension: tileDimension),
-              BoardTile(dimension: tileDimension),
-              BoardTile(dimension: tileDimension),
-            ]),
-          ],
-        ),
-      );
+          width: boardDimension,
+          height: boardDimension,
+          child: Column(
+              children: chunk(_boardState, 3).asMap().entries.map((entry) {
+            final chunkIndex = entry.key;
+            final tileStateChunk = entry.value;
+
+            return Row(
+              children: tileStateChunk.asMap().entries.map((innerEntry) {
+                final innerIndex = innerEntry.key;
+                final tileState = innerEntry.value;
+                final tileIndex = (chunkIndex * 3) + innerIndex;
+
+                return BoardTile(
+                  tileState: tileState,
+                  dimension: tileDimension,
+                  onPressed: () => print('tapped index $tileIndex'),
+                );
+              }).toList(),
+            );
+          }).toList()));
     });
   }
 }
