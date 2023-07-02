@@ -24,4 +24,13 @@ flutter:
 
   uses-material-design: true
   assets:
-    - images/
+    - assets/images/
+    - assets/fonts/
+    -
+  fonts:
+    - family: Gloria-regular
+      fonts:
+        - asset: assets/fonts/Gloria-regular.ttf
+          weight: 500
+
+
