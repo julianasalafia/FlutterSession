@@ -4,12 +4,12 @@ import 'package:tic_tac_toe/tile_state.dart';
 class BoardTile extends StatelessWidget {
   final TileState tileState;
   final double dimension;
-  final VoidCallback? onPressed;
+  final VoidCallback onPressed;
 
   const BoardTile(
       {super.key,
       required this.tileState,
-      this.onPressed,
+      required this.onPressed,
       required this.dimension});
 
   @override
@@ -19,7 +19,7 @@ class BoardTile extends StatelessWidget {
       height: dimension,
       child: TextButton(
         onPressed: onPressed,
-        child: Image.asset('images/x.png'),
+        child: _widgetForTileState(),
       ),
     );
   }
