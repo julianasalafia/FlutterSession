@@ -98,10 +98,22 @@ class _MyAppState extends State<MyApp> {
             SwitchListTile(
                 title: Text('Is Employed'),
                 value: _isEmployed,
-                onChanged: (newValue) => setState(() => _isEmployed = newValue))
+                onChanged: (newValue) =>
+                    setState(() => _isEmployed = newValue)),
+            TextButton(onPressed: _saveSettings, child: Text('Save Settings')),
           ],
         ),
       ),
     );
+  }
+
+  void _saveSettings() {
+    final newSettings = Settings(
+      _usernameController.text,
+      _selectedGender,
+      _selectedLanguages,
+      _isEmployed,
+    );
+    print(newSettings);
   }
 }
