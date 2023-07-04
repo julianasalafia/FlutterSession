@@ -17,6 +17,7 @@ class _MyAppState extends State<MyApp> {
   final _usernameController = TextEditingController();
   var _selectedGender = Gender.FEMALE;
   var _selectedLanguages = Set<ProgrammingLanguage>();
+  var _isEmployed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +95,10 @@ class _MyAppState extends State<MyApp> {
                         : _selectedLanguages.add(ProgrammingLanguage.SWIFT);
                   });
                 }),
+            SwitchListTile(
+                title: Text('Is Employed'),
+                value: _isEmployed,
+                onChanged: (newValue) => setState(() => _isEmployed = newValue))
           ],
         ),
       ),
