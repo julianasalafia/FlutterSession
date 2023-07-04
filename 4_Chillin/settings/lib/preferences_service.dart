@@ -16,4 +16,27 @@ class PreferencesService {
 
     print('saved settings');
   }
+
+  Future<Settings> getSettings() async {
+    final preferences = await SharedPreferences.getInstance();
+
+    final username = preferences.getString('username');
+    final isEmployed = preferences.getBool('isEmployed');
+    final gender = Gender.values[preferences.getInt('gender') ?? 0];
+
+    final programmingLanguagesIndicies =
+        preferences.getStringList('programmingLanguages');
+
+    final programmingLanguages = programmingLanguagesIndicies
+        ?.map(
+            (stringIndex) => ProgrammingLanguage.values[int.parse(stringIndex)])
+        .toSet();
+
+    return Settings(
+      username: username!,
+      gender: gender,
+      programmingLanguages: programmingLanguages!,
+      isEmployed: isEmployed!,
+    );
+  }
 }

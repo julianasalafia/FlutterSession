@@ -18,5 +18,8 @@ class Settings {
   final bool isEmployed;
 
   Settings(
-      this.username, this.gender, this.programmingLanguages, this.isEmployed);
+      {required this.username,
+      required this.gender,
+      required this.programmingLanguages,
+      required this.isEmployed});
 }

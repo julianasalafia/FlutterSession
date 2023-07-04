@@ -22,6 +22,22 @@ class _MyAppState extends State<MyApp> {
   var _isEmployed = false;
 
   @override
+  void initState() {
+    super.initState();
+    _populateFields();
+  }
+
+  void _populateFields() async {
+    final settings = await _preferencesService.getSettings();
+    setState(() {
+      _usernameController.text = settings.username;
+      _selectedGender = settings.gender;
+      _selectedLanguages = settings.programmingLanguages;
+      _isEmployed = settings.isEmployed;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
@@ -111,10 +127,10 @@ class _MyAppState extends State<MyApp> {
 
   void _saveSettings() {
     final newSettings = Settings(
-      _usernameController.text,
-      _selectedGender,
-      _selectedLanguages,
-      _isEmployed,
+      username: _usernameController.text,
+      gender: _selectedGender,
+      programmingLanguages: _selectedLanguages,
+      isEmployed: _isEmployed,
     );
     print(newSettings);
     _preferencesService.saveSettings(newSettings);
