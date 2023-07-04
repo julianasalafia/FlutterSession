@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:settings/preferences_service.dart';
 
 import 'models.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final _preferencesService = PreferencesService();
   final _usernameController = TextEditingController();
   var _selectedGender = Gender.FEMALE;
   var _selectedLanguages = Set<ProgrammingLanguage>();
@@ -115,5 +117,6 @@ class _MyAppState extends State<MyApp> {
       _isEmployed,
     );
     print(newSettings);
+    _preferencesService.saveSettings(newSettings);
   }
 }
