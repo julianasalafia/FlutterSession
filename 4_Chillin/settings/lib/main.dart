@@ -54,20 +54,46 @@ class _MyAppState extends State<MyApp> {
             CheckboxListTile(
                 title: Text('Dart'),
                 value: _selectedLanguages.contains(ProgrammingLanguage.DART),
-                onChanged: (_) {}),
+                onChanged: (_) {
+                  setState(() {
+                    _selectedLanguages.contains(ProgrammingLanguage.DART)
+                        ? _selectedLanguages.remove(ProgrammingLanguage.DART)
+                        : _selectedLanguages.add(ProgrammingLanguage.DART);
+                  });
+                }),
             CheckboxListTile(
                 title: Text('JavaScript'),
                 value:
                     _selectedLanguages.contains(ProgrammingLanguage.JAVASCRIPT),
-                onChanged: (_) {}),
+                onChanged: (_) {
+                  setState(() {
+                    _selectedLanguages.contains(ProgrammingLanguage.JAVASCRIPT)
+                        ? _selectedLanguages
+                            .remove(ProgrammingLanguage.JAVASCRIPT)
+                        : _selectedLanguages
+                            .add(ProgrammingLanguage.JAVASCRIPT);
+                  });
+                }),
             CheckboxListTile(
                 title: Text('Kotlin'),
                 value: _selectedLanguages.contains(ProgrammingLanguage.KOTLIN),
-                onChanged: (_) {}),
+                onChanged: (_) {
+                  setState(() {
+                    _selectedLanguages.contains(ProgrammingLanguage.KOTLIN)
+                        ? _selectedLanguages.remove(ProgrammingLanguage.KOTLIN)
+                        : _selectedLanguages.add(ProgrammingLanguage.KOTLIN);
+                  });
+                }),
             CheckboxListTile(
                 title: Text('Swift'),
                 value: _selectedLanguages.contains(ProgrammingLanguage.SWIFT),
-                onChanged: (_) {}),
+                onChanged: (_) {
+                  setState(() {
+                    _selectedLanguages.contains(ProgrammingLanguage.SWIFT)
+                        ? _selectedLanguages.remove(ProgrammingLanguage.SWIFT)
+                        : _selectedLanguages.add(ProgrammingLanguage.SWIFT);
+                  });
+                }),
           ],
         ),
       ),
