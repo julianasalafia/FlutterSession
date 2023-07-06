@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/models.dart';
 
 import 'data_service.dart';
 
@@ -16,6 +17,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final _cityTextController = TextEditingController();
   final _dataService = DataService();
+
+  late WeatherResponse _response;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +49,6 @@ class _MyAppState extends State<MyApp> {
 
   void _search() async {
     final response = await _dataService.getWeather(_cityTextController.text);
-    print(response.cityName);
+    setState(() => _response = response);
   }
 }

@@ -7,7 +7,8 @@ class DataService {
   Future<WeatherResponse> getWeather(String city) async {
     final queryParameters = {
       'q': city,
-      'appid': '47d15a02ee7501754f83e2e344aa0ba1'
+      'appid': '47d15a02ee7501754f83e2e344aa0ba1',
+      'units': 'metric',
     };
 
     final uri = Uri.https(
