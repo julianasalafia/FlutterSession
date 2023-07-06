@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   final _cityTextController = TextEditingController();
   final _dataService = DataService();
 
-  late WeatherResponse _response;
+  WeatherResponse? _response;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +28,17 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              if (_response != null)
+                Column(
+                  children: [
+                    Image.network(_response!.iconUrl),
+                    Text(
+                      '${_response!.tempInfo.temperature.toStringAsFixed(1)}º',
+                      style: TextStyle(fontSize: 40),
+                    ),
+                    Text(_response!.weatherInfo.description)
+                  ],
+                ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 50),
                 child: SizedBox(
