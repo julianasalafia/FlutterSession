@@ -12,6 +12,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final _users = List.filled(21, 'name');
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,7 +32,7 @@ class _MyAppState extends State<MyApp> {
           body: TabBarView(
             children: [
               _contentListView(),
-              Text('grid content'),
+              _contentGridView(),
             ],
           ),
         ),
@@ -40,12 +42,28 @@ class _MyAppState extends State<MyApp> {
 
   Widget _contentListView() {
     return ListView.builder(
-      itemCount: 20,
+      itemCount: _users.length,
       itemBuilder: (context, index) => Card(
         child: ListTile(
-          title: Text(index.toString()),
+          title: Text(_users[index].toString()),
+          onTap: () => print('hello $index'),
         ),
       ),
     );
+  }
+
+  Widget _contentGridView() {
+    return GridView.builder(
+        itemCount: _users.length,
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+        itemBuilder: (context, index) => Card(
+              child: Center(
+                child: GridTile(
+                    child: Text(
+                  _users[index],
+                )),
+              ),
+            ));
   }
 }
