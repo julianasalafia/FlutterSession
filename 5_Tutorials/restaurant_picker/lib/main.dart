@@ -1,9 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -29,18 +30,24 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text('What do you want to eat? '),
+              Text(
+                'What do you want to eat? ',
+                style: TextStyle(
+                    color: kTextColor, fontFamily: 'Courier', fontSize: 20),
+              ),
               SizedBox(height: 5.0),
               if (currentIndex != null)
                 Text(
                   restaurants[currentIndex!],
                   style: TextStyle(
                     fontSize: 30.0,
+                    color: kTextColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -57,7 +64,7 @@ class _MyAppState extends State<MyApp> {
                         borderRadius: BorderRadius.circular(30.0)),
                     padding: EdgeInsets.fromLTRB(25.0, 20.0, 25.0, 20.0),
                     foregroundColor: Colors.white,
-                    backgroundColor: Colors.pink,
+                    backgroundColor: kTextColor,
                   )),
             ],
           ),
