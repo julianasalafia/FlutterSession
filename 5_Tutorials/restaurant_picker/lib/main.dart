@@ -33,43 +33,49 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         backgroundColor: Colors.black,
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              AnimatedTextKit(animatedTexts: [
-                TypewriterAnimatedText('what do you want to eat?',
-                    textStyle: TextStyle(
-                        fontSize: 16.0,
-                        color: kTextColor,
-                        fontFamily: 'Courier'),
-                    speed: Duration(milliseconds: 100)),
-              ]),
-              SizedBox(height: 5.0),
-              if (currentIndex != null)
-                Text(
-                  restaurants[currentIndex!],
-                  style: TextStyle(
-                    fontSize: 70.0,
-                    color: kTextColor,
-                    fontFamily: 'Rubik',
-                  ),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 150.0, bottom: 25.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    AnimatedTextKit(repeatForever: false, animatedTexts: [
+                      TypewriterAnimatedText('what do you want to eat?',
+                          textStyle: kColorizeTextStyle,
+                          speed: Duration(milliseconds: 60)),
+                    ]),
+                    if (currentIndex != null)
+                      Text(
+                        restaurants[currentIndex!].toUpperCase(),
+                        style: kColorizeTextStyle,
+                      ),
+                  ],
                 ),
-              SizedBox(height: 10.0),
-              TextButton(
-                  onPressed: () {
-                    updateIndex();
-                  },
-                  child: Text(
-                    'Pick restaurant',
-                  ),
-                  style: TextButton.styleFrom(
-                    shape: StarBorder(),
-                    padding: EdgeInsets.fromLTRB(25.0, 20.0, 25.0, 20.0),
-                    foregroundColor: Colors.white,
-                    backgroundColor: kTextColor,
-                  )),
-            ],
+                Container(
+                  decoration: BoxDecoration(boxShadow: [
+                    BoxShadow(
+                      color: kTextColor.withOpacity(0.08),
+                      spreadRadius: 2,
+                      blurRadius: 3.0,
+                      offset: Offset(0, 0),
+                    ),
+                  ]),
+                  child: TextButton(
+                      onPressed: () {
+                        updateIndex();
+                      },
+                      child: Text(
+                        'pick restaurant',
+                        style: kColorizeTextStyle,
+                      ),
+                      style: TextButton.styleFrom(
+                          side: BorderSide(color: kTextColor, width: 1.0))),
+                ),
+              ],
+            ),
           ),
         ),
       ),
