@@ -17,12 +17,17 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   List<String> restaurants = [
-    'McDonald\'s',
-    'Olive Garden',
-    'Pizza Hut',
-    'Panda Express',
-    'Subway',
-    'The Waffle King',
+    'japanese food',
+    'mexican food',
+    'breakfast',
+    'snacks',
+    'hamburger',
+    'popcorn',
+    'chinese food',
+    'french fries',
+    'pizza',
+    'poke bowl',
+    'spaghetti',
   ];
 
   int? currentIndex;
@@ -43,7 +48,7 @@ class _MyAppState extends State<MyApp> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     AnimatedTextKit(repeatForever: false, animatedTexts: [
-                      TypewriterAnimatedText('what do you want to eat?',
+                      TypewriterAnimatedText('what should i eat?',
                           textStyle: kColorizeTextStyle,
                           speed: Duration(milliseconds: 60)),
                     ]),
@@ -68,7 +73,7 @@ class _MyAppState extends State<MyApp> {
                         updateIndex();
                       },
                       child: Text(
-                        'pick restaurant',
+                        'discover',
                         style: kColorizeTextStyle,
                       ),
                       style: TextButton.styleFrom(
