@@ -24,10 +24,24 @@ class _MyAppState extends State<MyApp> {
     'hamburger',
     'popcorn',
     'chinese food',
-    'french fries',
+    'fast food',
     'pizza',
     'poke bowl',
     'spaghetti',
+  ];
+
+  List<IconData> iconsList = [
+    Icons.bento,
+    Icons.takeout_dining,
+    Icons.breakfast_dining,
+    Icons.cookie,
+    Icons.lunch_dining,
+    Icons.microwave,
+    Icons.rice_bowl,
+    Icons.fastfood,
+    Icons.local_pizza,
+    Icons.ramen_dining,
+    Icons.dinner_dining,
   ];
 
   int? currentIndex;
@@ -41,7 +55,7 @@ class _MyAppState extends State<MyApp> {
           child: Padding(
             padding: const EdgeInsets.only(top: 150.0, bottom: 25.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -52,6 +66,14 @@ class _MyAppState extends State<MyApp> {
                           textStyle: kColorizeTextStyle,
                           speed: Duration(milliseconds: 60)),
                     ]),
+                    SizedBox(height: 10.0),
+                    if (currentIndex != null)
+                      Icon(
+                        iconsList[currentIndex!],
+                        size: 50.0,
+                        color: kTextColor,
+                      ),
+                    SizedBox(height: 10.0),
                     if (currentIndex != null)
                       Text(
                         restaurants[currentIndex!].toUpperCase(),
