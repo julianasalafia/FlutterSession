@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
@@ -36,19 +37,22 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'What do you want to eat? ',
-                style: TextStyle(
-                    color: kTextColor, fontFamily: 'Courier', fontSize: 20),
-              ),
+              AnimatedTextKit(animatedTexts: [
+                TypewriterAnimatedText('what do you want to eat?',
+                    textStyle: TextStyle(
+                        fontSize: 16.0,
+                        color: kTextColor,
+                        fontFamily: 'Courier'),
+                    speed: Duration(milliseconds: 100)),
+              ]),
               SizedBox(height: 5.0),
               if (currentIndex != null)
                 Text(
                   restaurants[currentIndex!],
                   style: TextStyle(
-                    fontSize: 30.0,
+                    fontSize: 70.0,
                     color: kTextColor,
-                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Rubik',
                   ),
                 ),
               SizedBox(height: 10.0),
@@ -60,8 +64,7 @@ class _MyAppState extends State<MyApp> {
                     'Pick restaurant',
                   ),
                   style: TextButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0)),
+                    shape: StarBorder(),
                     padding: EdgeInsets.fromLTRB(25.0, 20.0, 25.0, 20.0),
                     foregroundColor: Colors.white,
                     backgroundColor: kTextColor,
