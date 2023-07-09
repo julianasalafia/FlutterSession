@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_picker/constants.dart';
 
+const String title = 'TOTAL AMOUNT';
+const String buttonText = 'calculate';
+
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
 
@@ -29,7 +32,7 @@ class _InputPageState extends State<InputPage> {
                 ),
               ),
             Text(
-              'Total Amount',
+              title,
               style: kColorizeTextStyle,
             ),
             SizedBox(
@@ -44,10 +47,17 @@ class _InputPageState extends State<InputPage> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: ToggleButtons(
+                borderColor: kTextColor,
+                selectedBorderColor: kTextColor,
+                selectedColor: Colors.black,
+                hoverColor: kText2Color,
+                fillColor: kTextColor,
+                textStyle: kColorizeTextStyle,
+                color: kTextColor,
                 children: [
-                  Text('10%', style: kTextFontColor),
-                  Text('15%', style: kTextFontColor),
-                  Text('20%', style: kTextFontColor),
+                  Text('10%'),
+                  Text('15%'),
+                  Text('20%'),
                 ],
                 isSelected: _selection,
                 onPressed: updateSelection,
@@ -58,7 +68,7 @@ class _InputPageState extends State<InputPage> {
               style: TextButton.styleFrom(
                   side: const BorderSide(color: kTextColor, width: 1.0)),
               child: Text(
-                'calculate tip',
+                buttonText,
                 style: kColorizeTextStyle,
               ),
             ),

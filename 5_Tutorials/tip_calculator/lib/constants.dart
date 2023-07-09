@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const kTextColor = Color(0xFF149414);
+const kText2Color = Color(0x270B4D0B);
 
 const kTextFontColor = TextStyle(
   fontFamily: 'Courier',
