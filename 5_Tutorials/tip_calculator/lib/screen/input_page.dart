@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_picker/constants.dart';
 
+import '../alert_widget.dart';
+
 const String title = 'TOTAL AMOUNT';
 const String buttonText = 'calculate';
+const String hintText = '\$100.00';
+
+const List<String> percentages = ['5%', '10%', '15%', '20%'];
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -15,6 +20,7 @@ class _InputPageState extends State<InputPage> {
   final controller = TextEditingController();
   final List<bool> _selection = [true, false, false, false];
   String? tip;
+  int? index;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +47,7 @@ class _InputPageState extends State<InputPage> {
                         controller: controller,
                         textAlign: TextAlign.center,
                         decoration: InputDecoration(
-                          hintText: '\$100.00',
+                          hintText: hintText,
                           hintStyle: kHintTextStyle,
                           focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: kTextColor)),
@@ -62,14 +68,9 @@ class _InputPageState extends State<InputPage> {
                         fillColor: kTextColor,
                         textStyle: kColorizeTextStyle,
                         color: kTextColor,
-                        children: [
-                          Text('5%'),
-                          Text('10%'),
-                          Text('15%'),
-                          Text('20%'),
-                        ],
                         isSelected: _selection,
                         onPressed: updateSelection,
+                        children: createTextWidgets(percentages),
                       ),
                     ),
                   ],
@@ -134,34 +135,18 @@ class _InputPageState extends State<InputPage> {
         builder: (BuildContext context) {
           return Padding(
             padding: const EdgeInsets.all(15.0),
-            child: AlertDialog(
-              backgroundColor: Colors.black,
-              shadowColor: Colors.red,
-              shape:
-                  RoundedRectangleBorder(side: BorderSide(color: Colors.red)),
-              title: Text(
-                'WRONG!',
-                style: kAlertDialogTextStyle,
-              ),
-              content: Text(
-                'PROVIDE A VALID NUMBER',
-                style: kAlertDialogTextStyle,
-              ),
-              actions: <Widget>[
-                TextButton(
-                  child: Text(
-                    '>> OK!',
-                    style: kAlertDialogTextStyle,
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ],
-            ),
+            child: AlertWidget(),
           );
         },
       );
     }
+  }
+
+  List<Text> createTextWidgets(List<String> percentages) {
+    List<Text> textWidgets = [];
+    for (String percentage in percentages) {
+      textWidgets.add(Text(percentage));
+    }
+    return textWidgets;
   }
 }
