@@ -31,3 +31,15 @@ const kHintTextStyle = TextStyle(
         offset: Offset(0, 0),
       ),
     ]);
+
+const kAlertDialogTextStyle = TextStyle(
+    fontSize: 14.0,
+    fontFamily: 'Courier',
+    color: Colors.red,
+    shadows: [
+      Shadow(
+        blurRadius: 4.0,
+        color: Colors.red,
+        offset: Offset(0, 0),
+      ),
+    ]);

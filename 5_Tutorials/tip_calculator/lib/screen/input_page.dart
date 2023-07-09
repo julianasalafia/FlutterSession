@@ -20,68 +20,90 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (tip != null)
-              Padding(
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  tip!,
-                  style: kColorizeTextStyle,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 150.0, bottom: 25.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      title,
+                      style: kColorizeTextStyle,
+                    ),
+                    SizedBox(
+                      width: 70.0,
+                      child: TextField(
+                        style: kColorizeTextStyle,
+                        controller: controller,
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                          hintText: '\$100.00',
+                          hintStyle: kHintTextStyle,
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: kTextColor)),
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: kText2Color)),
+                        ),
+                        keyboardType:
+                            TextInputType.numberWithOptions(decimal: true),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: ToggleButtons(
+                        borderColor: kTextColor,
+                        selectedBorderColor: kTextColor,
+                        selectedColor: Colors.black,
+                        hoverColor: kText2Color,
+                        fillColor: kTextColor,
+                        textStyle: kColorizeTextStyle,
+                        color: kTextColor,
+                        children: [
+                          Text('5%'),
+                          Text('10%'),
+                          Text('15%'),
+                          Text('20%'),
+                        ],
+                        isSelected: _selection,
+                        onPressed: updateSelection,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            Text(
-              title,
-              style: kColorizeTextStyle,
-            ),
-            SizedBox(
-              width: 70.0,
-              child: TextField(
-                style: kColorizeTextStyle,
-                controller: controller,
-                textAlign: TextAlign.center,
-                decoration: InputDecoration(
-                  hintText: '\$100.00',
-                  hintStyle: kHintTextStyle,
-                  focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: kTextColor)),
-                  enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: kText2Color)),
+              if (tip != null)
+                Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Text(
+                    tip!,
+                    style: kColorizeTextStyle,
+                  ),
                 ),
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
+              Container(
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: kTextColor.withOpacity(0.08),
+                    spreadRadius: 2,
+                    blurRadius: 3.0,
+                    offset: const Offset(0, 0),
+                  ),
+                ]),
+                child: TextButton(
+                  onPressed: calculateTip,
+                  style: TextButton.styleFrom(
+                      side: const BorderSide(color: kTextColor, width: 1.0)),
+                  child: Text(
+                    buttonText,
+                    style: kColorizeTextStyle,
+                  ),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: ToggleButtons(
-                borderColor: kTextColor,
-                selectedBorderColor: kTextColor,
-                selectedColor: Colors.black,
-                hoverColor: kText2Color,
-                fillColor: kTextColor,
-                textStyle: kColorizeTextStyle,
-                color: kTextColor,
-                children: [
-                  Text('5%'),
-                  Text('10%'),
-                  Text('15%'),
-                  Text('20%'),
-                ],
-                isSelected: _selection,
-                onPressed: updateSelection,
-              ),
-            ),
-            TextButton(
-              onPressed: calculateTip,
-              style: TextButton.styleFrom(
-                  side: const BorderSide(color: kTextColor, width: 1.0)),
-              child: Text(
-                buttonText,
-                style: kColorizeTextStyle,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -96,14 +118,50 @@ class _InputPageState extends State<InputPage> {
   }
 
   void calculateTip() {
-    final totalAmount = double.parse(controller.text);
-    final selectedIndex = _selection.indexWhere((element) => element);
-    final tipPercentage = [0.05, 0.1, 0.15, 0.2][selectedIndex];
+    try {
+      final totalAmount = double.parse(controller.text);
+      final selectedIndex = _selection.indexWhere((element) => element);
+      final tipPercentage = [0.05, 0.1, 0.15, 0.2][selectedIndex];
 
-    final tipTotal = (totalAmount * tipPercentage).toStringAsFixed(2);
+      final tipTotal = (totalAmount * tipPercentage).toStringAsFixed(2);
 
-    setState(() {
-      tip = '\$$tipTotal';
-    });
+      setState(() {
+        tip = '\$$tipTotal';
+      });
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: AlertDialog(
+              backgroundColor: Colors.black,
+              shadowColor: Colors.red,
+              shape:
+                  RoundedRectangleBorder(side: BorderSide(color: Colors.red)),
+              title: Text(
+                'WRONG!',
+                style: kAlertDialogTextStyle,
+              ),
+              content: Text(
+                'PROVIDE A VALID NUMBER',
+                style: kAlertDialogTextStyle,
+              ),
+              actions: <Widget>[
+                TextButton(
+                  child: Text(
+                    '>> OK!',
+                    style: kAlertDialogTextStyle,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+          );
+        },
+      );
+    }
   }
 }
