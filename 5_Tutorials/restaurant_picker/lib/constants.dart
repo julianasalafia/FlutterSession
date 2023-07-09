@@ -8,7 +8,7 @@ const kColorizeTextStyle = TextStyle(
     color: kTextColor,
     shadows: [
       Shadow(
-        blurRadius: 3.0,
+        blurRadius: 4.0,
         color: kTextColor,
         offset: Offset(0, 0),
       ),
