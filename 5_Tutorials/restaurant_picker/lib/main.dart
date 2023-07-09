@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
-        primaryColor: Colors.black,
+        primaryColor: kTextColor,
         scaffoldBackgroundColor: Colors.black,
       ),
       home: InputPage(),
