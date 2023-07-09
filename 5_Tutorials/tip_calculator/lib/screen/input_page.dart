@@ -13,7 +13,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   final controller = TextEditingController();
-  final List<bool> _selection = [true, false, false];
+  final List<bool> _selection = [true, false, false, false];
   String? tip;
 
   @override
@@ -38,9 +38,17 @@ class _InputPageState extends State<InputPage> {
             SizedBox(
               width: 70.0,
               child: TextField(
+                style: kColorizeTextStyle,
                 controller: controller,
                 textAlign: TextAlign.center,
-                decoration: InputDecoration(hintText: '\$100.00'),
+                decoration: InputDecoration(
+                  hintText: '\$100.00',
+                  hintStyle: kHintTextStyle,
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: kTextColor)),
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: kText2Color)),
+                ),
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
               ),
             ),
@@ -55,6 +63,7 @@ class _InputPageState extends State<InputPage> {
                 textStyle: kColorizeTextStyle,
                 color: kTextColor,
                 children: [
+                  Text('5%'),
                   Text('10%'),
                   Text('15%'),
                   Text('20%'),
@@ -89,7 +98,7 @@ class _InputPageState extends State<InputPage> {
   void calculateTip() {
     final totalAmount = double.parse(controller.text);
     final selectedIndex = _selection.indexWhere((element) => element);
-    final tipPercentage = [0.1, 0.15, 0.2][selectedIndex];
+    final tipPercentage = [0.05, 0.1, 0.15, 0.2][selectedIndex];
 
     final tipTotal = (totalAmount * tipPercentage).toStringAsFixed(2);
 
