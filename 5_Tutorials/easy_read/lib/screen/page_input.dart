@@ -34,19 +34,32 @@ class _PageInputState extends State<PageInput> {
                 ),
               ),
             ),
-            SliderTheme(
-              data: SliderTheme.of(context).copyWith(
-                thumbColor: kTextColor,
-                activeTrackColor: kTextColor,
-                inactiveTrackColor: kText2Color,
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: kTextColor.withOpacity(0.08),
+                    spreadRadius: 1,
+                    blurRadius: 50.0,
+                    offset: const Offset(0, 0),
+                  ),
+                ],
               ),
-              child: Slider(
-                value: _fontSize,
-                onChanged: (newSize) {
-                  setState(() => _fontSize = newSize);
-                },
-                min: 30,
-                max: 200,
+              child: SliderTheme(
+                data: SliderTheme.of(context).copyWith(
+                  thumbColor: kTextColor,
+                  activeTrackColor: kTextColor,
+                  inactiveTrackColor: kText2Color,
+                  thumbShape: RoundSliderThumbShape(enabledThumbRadius: 10.0),
+                ),
+                child: Slider(
+                  value: _fontSize,
+                  onChanged: (newSize) {
+                    setState(() => _fontSize = newSize);
+                  },
+                  min: 30,
+                  max: 200,
+                ),
               ),
             ),
           ],
