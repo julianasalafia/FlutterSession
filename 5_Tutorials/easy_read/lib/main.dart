@@ -1,3 +1,5 @@
+import 'package:easy_read/constants.dart';
+import 'package:easy_read/screen/page_input.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,34 +14,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  double _fontSize = 40;
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: SafeArea(
-          child: Column(
-            children: [
-              Expanded(
-                child: TextField(
-                  textInputAction: TextInputAction.done,
-                  style: TextStyle(fontSize: _fontSize),
-                  maxLines: null,
-                ),
-              ),
-              Slider(
-                value: _fontSize,
-                onChanged: (newSize) {
-                  setState(() => _fontSize = newSize);
-                },
-                min: 30,
-                max: 200,
-              ),
-            ],
-          ),
-        ),
+      theme: ThemeData.dark().copyWith(
+        primaryColor: kTextColor,
+        scaffoldBackgroundColor: Colors.black,
       ),
+      home: const PageInput(),
     );
   }
 }
