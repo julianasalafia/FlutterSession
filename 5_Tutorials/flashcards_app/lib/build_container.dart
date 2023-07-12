@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
-class BuildContainer extends StatelessWidget {
-  const BuildContainer(
+class buttonContainer extends StatelessWidget {
+  const buttonContainer(
       {super.key,
       required this.text,
       required this.onPressed,
@@ -14,8 +14,9 @@ class BuildContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = 50.0;
     return Container(
-      height: 50.0,
+      height: height,
       decoration: kBoxDecoration,
       child: OutlinedButton.icon(
           style: ButtonStyle(

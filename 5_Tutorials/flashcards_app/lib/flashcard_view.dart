@@ -8,20 +8,24 @@ class FlashcardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double blurRadius = 15.0;
+    const padding = 8.0;
+    double elevation = 4;
+
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(padding),
       child: Container(
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              blurRadius: 15.0,
+              blurRadius: blurRadius,
               color: kTextColor,
-              offset: Offset(0, 0),
+              offset: const Offset(0, 0),
             ),
           ],
         ),
         child: Card(
-          elevation: 4,
+          elevation: elevation,
           child: Center(
             child: Text(
               text,

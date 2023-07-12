@@ -1,4 +1,3 @@
-import 'package:flashcards_app/constants.dart';
 import 'package:flashcards_app/flashcard_view.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
@@ -20,37 +19,49 @@ class _InputPageState extends State<InputPage> {
 
   @override
   Widget build(BuildContext context) {
+    String leftButton = 'PREV';
+    String rightButton = 'NEXT';
+
+    double width = 250.0;
+    double height = 250.0;
+
+    const padding = 25.0;
+
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 250,
-              height: 250,
-              child: FlipCard(
-                front: FlashcardView(
-                  text: _flashcards[_currentIndex].question,
-                ),
-                back: FlashcardView(
-                  text: _flashcards[_currentIndex].answer,
+        child: Padding(
+          padding: const EdgeInsets.all(padding),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: width,
+                height: height,
+                child: FlipCard(
+                  front: FlashcardView(
+                    text: _flashcards[_currentIndex].question,
+                  ),
+                  back: FlashcardView(
+                    text: _flashcards[_currentIndex].answer,
+                  ),
                 ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                BuildContainer(
-                    text: 'PREV',
-                    onPressed: showPreviousCard,
-                    icon: Icon(Icons.chevron_left)),
-                BuildContainer(
-                    text: 'NEXT',
-                    onPressed: showNextCard,
-                    icon: Icon(Icons.chevron_right)),
-              ],
-            ),
-          ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  buttonContainer(
+                      text: leftButton,
+                      onPressed: showPreviousCard,
+                      icon: Icon(Icons.chevron_left)),
+                  buttonContainer(
+                      text: rightButton,
+                      onPressed: showNextCard,
+                      icon: Icon(Icons.chevron_right)),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

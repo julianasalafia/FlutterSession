@@ -1,8 +1,5 @@
 import 'package:flashcards_app/constants.dart';
-import 'package:flashcards_app/flashcard.dart';
-import 'package:flashcards_app/flashcard_view.dart';
 import 'package:flashcards_app/screens/input_page.dart';
-import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,15 +16,17 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    double radius = 15.0;
+
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
         cardTheme: CardTheme(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
+            borderRadius: BorderRadius.circular(radius),
           ),
           color: Colors.black,
         ),
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodySmall: kColorizeTextStyle,
           bodyMedium: kColorizeTextStyle,
           bodyLarge: kColorizeTextStyle,
