@@ -1,3 +1,4 @@
+import 'package:flashcards_app/constants.dart';
 import 'package:flashcards_app/flashcard_view.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
@@ -38,14 +39,56 @@ class _InputPageState extends State<InputPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                OutlinedButton.icon(
-                    onPressed: showPreviousCard,
-                    icon: Icon(Icons.chevron_left),
-                    label: Text('Prev')),
-                OutlinedButton.icon(
-                    onPressed: showNextCard,
-                    icon: Icon(Icons.chevron_right),
-                    label: Text('Next')),
+                Container(
+                  height: 50.0,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 15.0,
+                        color: kTextColor,
+                        offset: Offset(0, 0),
+                      ),
+                    ],
+                  ),
+                  child: OutlinedButton.icon(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                        foregroundColor: MaterialStateProperty.all(kTextColor),
+                        side: MaterialStateProperty.all(BorderSide.none),
+                      ),
+                      onPressed: showPreviousCard,
+                      icon: Icon(Icons.chevron_left),
+                      label: Text(
+                        'Prev',
+                        style: kColorizeTextStyle,
+                      )),
+                ),
+                Container(
+                  height: 50.0,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 15.0,
+                        color: kTextColor,
+                        offset: Offset(0, 0),
+                      ),
+                    ],
+                  ),
+                  child: OutlinedButton.icon(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                        foregroundColor: MaterialStateProperty.all(kTextColor),
+                        side: MaterialStateProperty.all(BorderSide.none),
+                      ),
+                      onPressed: showNextCard,
+                      icon: Icon(Icons.chevron_right),
+                      label: Text(
+                        'Next',
+                        style: kColorizeTextStyle,
+                      )),
+                ),
               ],
             ),
           ],
