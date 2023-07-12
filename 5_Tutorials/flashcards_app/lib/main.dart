@@ -1,3 +1,4 @@
+import 'package:flashcards_app/constants.dart';
 import 'package:flashcards_app/flashcard.dart';
 import 'package:flashcards_app/flashcard_view.dart';
 import 'package:flashcards_app/screens/input_page.dart';
@@ -19,6 +20,20 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        cardTheme: CardTheme(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          color: Colors.black,
+        ),
+        textTheme: TextTheme(
+          bodySmall: kColorizeTextStyle,
+          bodyMedium: kColorizeTextStyle,
+          bodyLarge: kColorizeTextStyle,
+        ),
+        scaffoldBackgroundColor: Colors.black,
+      ),
       home: InputPage(),
     );
   }
