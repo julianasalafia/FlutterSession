@@ -15,3 +15,13 @@ const kColorizeTextStyle = TextStyle(
         offset: Offset(0, 0),
       ),
     ]);
+
+const kBoxDecoration = BoxDecoration(
+  boxShadow: [
+    BoxShadow(
+      blurRadius: 15.0,
+      color: kTextColor,
+      offset: Offset(0, 0),
+    ),
+  ],
+);
