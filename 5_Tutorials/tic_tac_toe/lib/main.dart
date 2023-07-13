@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/board_tile.dart';
+import 'package:tic_tac_toe/constants.dart';
 import 'package:tic_tac_toe/tile_state.dart';
 
 void main() {
@@ -21,6 +22,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.black,
+      ),
       navigatorKey: navigatorKey,
       home: Scaffold(
         body: Center(
@@ -116,7 +120,13 @@ class _MyAppState extends State<MyApp> {
         context: context,
         builder: (_) {
           return AlertDialog(
-            title: Text('winner'),
+            backgroundColor: Colors.black,
+            shadowColor: kTextColor,
+            shape: RoundedRectangleBorder(side: BorderSide(color: kTextColor)),
+            title: Text(
+              'winner',
+              style: kAlertDialogTextStyle,
+            ),
             content: Image.asset(
                 tileState == TileState.CROSS ? 'images/x.png' : 'images/o.png'),
             actions: [
@@ -125,7 +135,10 @@ class _MyAppState extends State<MyApp> {
                     _resetGame();
                     Navigator.of(context).pop();
                   },
-                  child: Text('new game'))
+                  child: Text(
+                    'new game',
+                    style: kAlertDialogTextStyle,
+                  ))
             ],
           );
         });
