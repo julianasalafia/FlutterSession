@@ -1,5 +1,5 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'main_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,28 +21,10 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: SafeArea(
-          child: Center(
-            child: CarouselSlider(
-              options: CarouselOptions(
-                autoPlay: true,
-                height: 500.0,
-              ),
-              items: _imagePaths.map((imagePath) {
-                return Builder(
-                  builder: (context) {
-                    return Container(
-                        width: MediaQuery.of(context).size.width,
-                        margin: EdgeInsets.symmetric(horizontal: 4),
-                        child: Image.asset(imagePath));
-                  },
-                );
-              }).toList(),
-            ),
-          ),
-        ),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.black,
       ),
+      home: MainPage(imagePaths: _imagePaths),
     );
   }
 }
