@@ -15,3 +15,4 @@ Hey, this folder has small projects focused on the fundamentals of coding. I'll 
 - [Weather App](https://github.com/julianasalafia/FlutterSession/tree/main/5_Tutorials/weather_app)
 - [Dynamic Lists and Grids](https://github.com/julianasalafia/FlutterSession/tree/main/5_Tutorials/lists_and_grids)
 - [BloC and Cubit](https://github.com/julianasalafia/FlutterSession/tree/main/5_Tutorials/bloc_and_cubit)
+- [From Cubit to BloC](https://github.com/julianasalafia/FlutterSession/tree/main/5_Tutorials/from_cubit_to_bloc)
