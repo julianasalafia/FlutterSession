@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokedex_app/bloc/pokemon_bloc.dart';
+import 'package:pokedex_app/bloc/pokemon_event.dart';
 import 'package:pokedex_app/pokedex_view.dart';
 
 void main() {
@@ -16,7 +19,14 @@ class MyApp extends StatelessWidget {
                 primary: Colors.red,
                 secondary: Colors.red,
               )),
-      home: PokedexView(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+              create: (context) =>
+                  PokemonBloc()..add(PokemonPageRequest(page: 0)))
+        ],
+        child: PokedexView(),
+      ),
     );
   }
 }

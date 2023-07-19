@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 import 'package:pokedex_app/pokemon_page_response.dart';
 
@@ -9,7 +8,7 @@ class PokemonRepository {
 
   Future<PokemonPageResponse> getPokemonPage(int pageIndex) async {
     final queryParameters = {
-      'limit': 200,
+      'limit': '200',
       'offset': (pageIndex * 200).toString()
     };
 
