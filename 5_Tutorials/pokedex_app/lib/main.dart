@@ -5,7 +5,6 @@ import 'package:pokedex_app/bloc/nav_cubit.dart';
 import 'package:pokedex_app/bloc/pokemon_bloc.dart';
 import 'package:pokedex_app/bloc/pokemon_details_cubit.dart';
 import 'package:pokedex_app/bloc/pokemon_event.dart';
-import 'package:pokedex_app/pokedex_view.dart';
 
 void main() {
   runApp(const MyApp());
